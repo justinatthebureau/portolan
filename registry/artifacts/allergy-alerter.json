@@ -1,0 +1,140 @@
+{
+  "name": "Allergy Alerter",
+  "tagline": "Daily email alerts when pollen, mold, or air quality crosses your personal thresholds.",
+  "description": "Monitors local pollen counts, mold levels, and air quality index for your location using Open-Meteo's free API. Sends a morning email when conditions exceed your configured thresholds. Useful for people managing allergies, asthma, or mast cell conditions who want to plan their day before stepping outside. No subscriptions, no apps — just a daily email from your own server.",
+  "author": "yourgithubusername",
+  "repo": "https://github.com/yourgithubusername/allergy-alerter",
+  "version": "1.0.0",
+  "compose_file": "docker-compose.yml",
+  "os_compatibility": ["linux", "mac", "windows"],
+  "hardware": {
+    "min_ram_gb": 0.25,
+    "note": "Very lightweight — runs happily on any Raspberry Pi"
+  },
+  "category": ["home"],
+  "tags": ["health", "pollen", "air-quality", "email", "alerts", "open-meteo", "ofelia"],
+  "tags": ["health", "pollen", "air-quality", "email", "alerts", "open-meteo", "ofelia"],
+  "difficulty": "beginner",
+  "cost": {
+    "tier": "free",
+    "max_monthly_usd": 0.00,
+    "apis_billed": [],
+    "note": "Uses Open-Meteo which is free for non-commercial use. Only cost is electricity to run the container."
+  },
+  "apis_required": ["open_meteo"],
+  "env": [
+    {
+      "key": "LATITUDE",
+      "description": "Your latitude coordinate. Used to fetch local weather and pollen data.",
+      "required": true,
+      "sensitive": false,
+      "example": "44.0",
+      "type": "string",
+      "group": "Location"
+    },
+    {
+      "key": "LONGITUDE",
+      "description": "Your longitude coordinate.",
+      "required": true,
+      "sensitive": false,
+      "example": "-73.1",
+      "type": "string",
+      "group": "Location"
+    },
+    {
+      "key": "ALERT_EMAIL",
+      "description": "Email address to receive daily allergy alerts.",
+      "required": true,
+      "sensitive": false,
+      "example": "you@email.com",
+      "type": "email",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_HOST",
+      "description": "SMTP server for outbound email.",
+      "required": false,
+      "sensitive": false,
+      "default": "smtp.gmail.com",
+      "type": "string",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_PORT",
+      "description": "SMTP port.",
+      "required": false,
+      "sensitive": false,
+      "default": "587",
+      "type": "integer",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_USER",
+      "description": "Your Gmail address or SMTP username.",
+      "required": true,
+      "sensitive": false,
+      "example": "you@gmail.com",
+      "type": "email",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_PASSWORD",
+      "description": "Gmail app password. Create at myaccount.google.com/apppasswords — requires 2FA.",
+      "required": true,
+      "sensitive": true,
+      "type": "string",
+      "obtain_url": "https://myaccount.google.com/apppasswords",
+      "group": "Email"
+    },
+    {
+      "key": "POLLEN_THRESHOLD",
+      "description": "Grass/tree pollen index level that triggers an alert (0–5 scale).",
+      "required": false,
+      "sensitive": false,
+      "default": "3",
+      "type": "integer",
+      "group": "Thresholds"
+    },
+    {
+      "key": "AQI_THRESHOLD",
+      "description": "Air Quality Index that triggers an alert (US EPA scale: 0–500).",
+      "required": false,
+      "sensitive": false,
+      "default": "100",
+      "type": "integer",
+      "group": "Thresholds"
+    },
+    {
+      "key": "ALERT_TIME",
+      "description": "Time to send the morning alert in 24h format (HH:MM).",
+      "required": false,
+      "sensitive": false,
+      "default": "07:00",
+      "type": "string",
+      "group": "Schedule"
+    }
+  ],
+  "services": [
+    {
+      "name": "alerter",
+      "image": "python:3.11-slim",
+      "description": "Fetches pollen and AQI data, evaluates thresholds, sends email"
+    },
+    {
+      "name": "scheduler",
+      "image": "mcuadros/ofelia:latest",
+      "description": "Cron scheduler — triggers the alerter at your configured time daily"
+    }
+  ],
+  "model_card": {
+    "intended_use": "Individuals managing pollen allergies, asthma, or environmental sensitivities who want a daily heads-up before leaving the house.",
+    "not_for": "Medical diagnosis, clinical decision support, or real-time air quality monitoring during emergencies.",
+    "limitations": "Pollen data from Open-Meteo is modeled, not sensor-measured. Local conditions (near a park, rural vs urban) may differ from the forecast. Not a substitute for medical advice.",
+    "privacy": "Your coordinates are sent to Open-Meteo's public API. No personal health data leaves your machine. Open-Meteo is GDPR-compliant and free for non-commercial use.",
+    "getting_started": "1. Copy `.env.example` to `.env`\n2. Set your LATITUDE and LONGITUDE (find yours at latlong.net)\n3. Set your ALERT_EMAIL and Gmail app password\n4. Adjust thresholds if desired\n5. Run `docker compose up -d`\n6. You'll receive your first alert at your configured ALERT_TIME",
+    "known_issues": [
+      "Open-Meteo pollen API coverage is best in Europe and North America",
+      "Gmail app passwords require 2FA to be enabled"
+    ]
+  }
+}

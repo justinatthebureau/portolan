@@ -1,0 +1,25 @@
+name: Validate Registry
+
+on:
+  pull_request:
+    paths:
+      - "registry/artifacts/**"
+      - "registry/schema.py"
+      - "registry/validate.py"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pydantic
+
+      - name: Validate artifacts
+        working-directory: registry
+        run: python validate.py

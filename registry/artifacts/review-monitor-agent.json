@@ -1,0 +1,129 @@
+{
+  "name": "Review Monitor Agent",
+  "tagline": "Get alerted when new reviews appear on Google or Yelp — automatically summarized by AI.",
+  "description": "Monitors your Google Business and Yelp listings for new reviews. When one appears, Claude summarizes the sentiment, flags urgent issues, and sends you an email digest. Set it up once and forget it. Ideal for small businesses that care about reputation but don't have time to check review platforms daily.",
+  "author": "yourgithubusername",
+  "repo": "https://github.com/yourgithubusername/review-monitor-agent",
+  "version": "1.0.0",
+  "compose_file": "docker-compose.yml",
+  "os_compatibility": ["linux", "mac", "windows"],
+  "hardware": {
+    "min_ram_gb": 0.5,
+    "note": "Runs fine on a Raspberry Pi 4"
+  },
+  "category": ["business"],
+  "tags": ["monitoring", "reviews", "email", "alerts", "anthropic"],
+  "difficulty": "beginner",
+  "cost": {
+    "tier": "low",
+    "max_monthly_usd": 3.00,
+    "min_monthly_usd": 0.50,
+    "apis_billed": ["anthropic"],
+    "note": "Cost scales with review volume. Most small businesses stay under $2/month."
+  },
+  "apis_required": ["anthropic", "gmail", "google_business"],
+  "env": [
+    {
+      "key": "ANTHROPIC_API_KEY",
+      "description": "Your Anthropic API key. Used to summarize and analyze review text.",
+      "required": true,
+      "sensitive": true,
+      "example": "sk-ant-api03-...",
+      "type": "string",
+      "validation": "Must start with sk-ant-",
+      "obtain_url": "https://console.anthropic.com/keys",
+      "group": "AI Provider"
+    },
+    {
+      "key": "GOOGLE_PLACES_API_KEY",
+      "description": "Google Places API key to fetch your business reviews.",
+      "required": true,
+      "sensitive": true,
+      "type": "string",
+      "obtain_url": "https://console.cloud.google.com/apis/credentials",
+      "group": "Review Sources"
+    },
+    {
+      "key": "GOOGLE_PLACE_ID",
+      "description": "Your Google Business place ID. Find it at https://developers.google.com/maps/documentation/places/web-service/place-id",
+      "required": true,
+      "sensitive": false,
+      "example": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "type": "string",
+      "obtain_url": "https://developers.google.com/maps/documentation/places/web-service/place-id",
+      "group": "Review Sources"
+    },
+    {
+      "key": "ALERT_EMAIL",
+      "description": "Email address to receive review digests.",
+      "required": true,
+      "sensitive": false,
+      "example": "you@yourbusiness.com",
+      "type": "email",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_HOST",
+      "description": "SMTP server for sending emails.",
+      "required": false,
+      "sensitive": false,
+      "default": "smtp.gmail.com",
+      "type": "string",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_PORT",
+      "description": "SMTP port.",
+      "required": false,
+      "sensitive": false,
+      "default": "587",
+      "type": "integer",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_USER",
+      "description": "Your Gmail address (or SMTP username).",
+      "required": true,
+      "sensitive": false,
+      "example": "you@gmail.com",
+      "type": "email",
+      "group": "Email"
+    },
+    {
+      "key": "SMTP_PASSWORD",
+      "description": "Gmail app password (not your regular password). Create one at myaccount.google.com/apppasswords.",
+      "required": true,
+      "sensitive": true,
+      "type": "string",
+      "obtain_url": "https://myaccount.google.com/apppasswords",
+      "group": "Email"
+    },
+    {
+      "key": "CHECK_INTERVAL_HOURS",
+      "description": "How often to check for new reviews.",
+      "required": false,
+      "sensitive": false,
+      "default": "6",
+      "type": "integer",
+      "group": "Schedule"
+    }
+  ],
+  "services": [
+    {
+      "name": "agent",
+      "image": "python:3.11-slim",
+      "description": "Main monitoring loop — fetches reviews, runs analysis, sends alerts"
+    }
+  ],
+  "model_card": {
+    "intended_use": "Small to medium businesses monitoring 1–3 review platforms with under 500 reviews/month.",
+    "not_for": "High-volume enterprise review management, legal evidence collection, or responding to reviews automatically.",
+    "limitations": "Sarcasm and local slang may be misclassified. Non-English reviews are summarized but sentiment accuracy varies by language.",
+    "privacy": "Review text is sent to the Anthropic API for analysis. No review data is stored permanently by this tool. Anthropic's data retention policies apply.",
+    "getting_started": "1. Copy `.env.example` to `.env` and fill in your keys\n2. Run `docker compose up -d`\n3. Check logs with `docker compose logs -f`\n4. You'll receive your first digest within the first check interval",
+    "known_issues": [
+      "Yelp API access requires a Yelp Fusion API key — free tier limited to 5000 calls/day",
+      "Gmail app passwords require 2FA to be enabled on your Google account"
+    ]
+  }
+}
