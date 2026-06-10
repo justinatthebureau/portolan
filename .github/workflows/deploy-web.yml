@@ -41,7 +41,7 @@ jobs:
           VITE_REGISTRY_URL: https://raw.githubusercontent.com/${{ github.repository }}/main/registry/index.json
           # Set to /repo-name/ if no custom domain, or / if using custom domain
           # Update this when you set up your repo
-          VITE_BASE_PATH: /
+          VITE_BASE_PATH: /portolan/
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
