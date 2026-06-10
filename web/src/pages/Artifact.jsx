@@ -5,6 +5,7 @@ import Badge from "../components/Badge";
 import EnvVarTable from "../components/EnvVarTable";
 import ModelCardSection from "../components/ModelCardSection";
 import CostDisplay from "../components/CostDisplay";
+import QuickDeploy from "../components/QuickDeploy";
 
 export default function Artifact() {
   const { slug } = useParams();
@@ -105,6 +106,9 @@ export default function Artifact() {
               <p style={styles.body}>{description}</p>
             </section>
           )}
+
+          {/* Quick deploy guide for non-coders */}
+          <QuickDeploy repo={repo} composeFile={compose_file} env={env} />
 
           {/* Deploy command */}
           <section style={styles.section}>
