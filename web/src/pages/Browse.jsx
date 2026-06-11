@@ -48,7 +48,7 @@ export default function Browse() {
         </p>
         <div style={styles.heroActions}>
           <a
-            href="https://github.com/YOUR_ORG/aistack"
+            href="https://github.com/justinatthebureau/portolan"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.btnPrimary}

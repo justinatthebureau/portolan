@@ -65,7 +65,7 @@ export default function About() {
         </p>
         <div style={styles.links}>
           <a
-            href="https://github.com/YOUR_ORG/aistack"
+            href="https://github.com/justinatthebureau/portolan"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.linkBtn}
@@ -74,7 +74,7 @@ export default function About() {
           </a>
           <Link to="/submit" style={styles.linkBtn}>Publish an artifact</Link>
           <a
-            href="https://github.com/YOUR_ORG/aistack/blob/main/CONTRIBUTING.md"
+            href="https://github.com/justinatthebureau/portolan/blob/main/CONTRIBUTING.md"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.linkBtn}

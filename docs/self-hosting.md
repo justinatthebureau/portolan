@@ -10,7 +10,7 @@ You can fork this repo and run your own private or community instance of AIStack
 
 ## Fork and configure
 
-1. Fork [github.com/YOUR_ORG/aistack](https://github.com/YOUR_ORG/aistack) on GitHub
+1. Fork [github.com/justinatthebureau/portolan](https://github.com/justinatthebureau/portolan) on GitHub
 2. Go to your fork's **Settings → Pages**
    - Source: **GitHub Actions**
 3. Go to **Settings → Actions → General → Workflow permissions**
@@ -74,7 +74,7 @@ Both workflows run automatically on push, but you can also trigger them manually
 
 To pull improvements from the main AIStack repo:
 ```bash
-git remote add upstream https://github.com/YOUR_ORG/aistack.git
+git remote add upstream https://github.com/justinatthebureau/portolan.git
 git fetch upstream
 git merge upstream/main
 ```

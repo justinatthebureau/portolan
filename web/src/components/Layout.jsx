@@ -32,7 +32,7 @@ export default function Layout({ children }) {
               </Link>
             ))}
             <a
-              href="https://github.com/YOUR_ORG/aistack"
+              href="https://github.com/justinatthebureau/portolan"
               target="_blank"
               rel="noopener noreferrer"
               style={styles.navLink}
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
             AIStack — MIT License — Community maintained
           </span>
           <div style={{ display: "flex", gap: "24px" }}>
-            <a href="https://github.com/YOUR_ORG/aistack" target="_blank" rel="noopener noreferrer" style={styles.footerLink}>GitHub</a>
+            <a href="https://github.com/justinatthebureau/portolan" target="_blank" rel="noopener noreferrer" style={styles.footerLink}>GitHub</a>
             <Link to="/submit" style={styles.footerLink}>Publish an artifact</Link>
             <Link to="/about" style={styles.footerLink}>About</Link>
           </div>

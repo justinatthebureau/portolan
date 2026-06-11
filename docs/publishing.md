@@ -78,7 +78,7 @@ Example: `review-monitor-agent`, `allergy-alerter`, `invoice-extractor`
 
 ## Step 3 — Fork and add your artifact
 
-1. Fork [github.com/YOUR_ORG/aistack](https://github.com/YOUR_ORG/aistack)
+1. Fork [github.com/justinatthebureau/portolan](https://github.com/justinatthebureau/portolan)
 2. Add a file at `registry/artifacts/your-slug.json` with your marketplace.json content
 3. Run validation locally to catch errors before CI:
 

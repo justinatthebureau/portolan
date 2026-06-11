@@ -94,7 +94,7 @@ export default function Submit() {
 
       <div style={styles.prLink}>
         <a
-          href="https://github.com/YOUR_ORG/aistack/fork"
+          href="https://github.com/justinatthebureau/portolan/fork"
           target="_blank"
           rel="noopener noreferrer"
           style={styles.primaryBtn}
@@ -110,7 +110,7 @@ export default function Submit() {
           Drop this file at the root of your repo and customize it.
           See the{" "}
           <a
-            href="https://github.com/YOUR_ORG/aistack/blob/main/registry/schema.py"
+            href="https://github.com/justinatthebureau/portolan/blob/main/registry/schema.py"
             target="_blank"
             rel="noopener noreferrer"
             style={styles.inlineLink}
