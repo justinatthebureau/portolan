@@ -1,6 +1,6 @@
 # Publishing an Artifact
 
-This guide walks through publishing a Docker-based AI tool to the AIStack marketplace.
+This guide walks through publishing a Docker-based AI tool to the portolan marketplace.
 
 ---
 
@@ -92,7 +92,7 @@ python validate.py
 
 ## Step 4 — Open a pull request
 
-Open a PR against the main AIStack repo. CI will:
+Open a PR against the main portolan repo. CI will:
 - Validate your JSON against the schema
 - Check that required fields are present
 - Report specific errors if anything is wrong

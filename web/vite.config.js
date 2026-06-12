@@ -4,8 +4,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   // base is injected by CI via VITE_BASE_PATH environment variable.
-  // - Custom domain (e.g. aistack.dev): set VITE_BASE_PATH=/
-  // - GitHub Pages subdirectory (e.g. username.github.io/aistack): set VITE_BASE_PATH=/aistack/
+  // - Custom domain (e.g. portolan.dev): set VITE_BASE_PATH=/
+  // - GitHub Pages subdirectory (e.g. username.github.io/portolan): set VITE_BASE_PATH=/portolan/
   // - Local dev: defaults to /
   base: process.env.VITE_BASE_PATH || "/",
 });

@@ -1,5 +1,5 @@
 """
-AIStack Marketplace Schema
+portolan Marketplace Schema
 ==========================
 This file is the canonical specification for marketplace.json artifacts.
 Version this file independently from the app — breaking changes require

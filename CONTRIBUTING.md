@@ -1,6 +1,6 @@
-# Contributing to AIStack
+# Contributing to portolan
 
-Thanks for wanting to contribute. AIStack is a community project and contributions of all kinds are welcome.
+Thanks for wanting to contribute. portolan is a community project and contributions of all kinds are welcome.
 
 ## Ways to contribute
 

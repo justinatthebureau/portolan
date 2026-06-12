@@ -1,6 +1,6 @@
-# Self-Hosting AIStack
+# Self-Hosting portolan
 
-You can fork this repo and run your own private or community instance of AIStack. This is useful for:
+You can fork this repo and run your own private or community instance of portolan. This is useful for:
 
 - An internal company catalog of approved AI tools
 - A community-specific registry (homelab tools, agriculture, education)
@@ -20,21 +20,21 @@ You can fork this repo and run your own private or community instance of AIStack
 
 ## Configure the base path
 
-If you're hosting at `username.github.io/aistack` (no custom domain):
+If you're hosting at `username.github.io/portolan` (no custom domain):
 
 Edit `.github/workflows/deploy-web.yml` and set:
 ```yaml
-VITE_BASE_PATH: /aistack/
+VITE_BASE_PATH: /portolan/
 ```
 
-If you're using a custom domain (e.g. `aistack.yourorg.com`):
+If you're using a custom domain (e.g. `portolan.yourorg.com`):
 ```yaml
 VITE_BASE_PATH: /
 ```
 
 And add a `web/public/CNAME` file containing your domain:
 ```
-aistack.yourorg.com
+portolan.yourorg.com
 ```
 
 ---
@@ -72,7 +72,7 @@ Both workflows run automatically on push, but you can also trigger them manually
 
 ## Keeping up with upstream
 
-To pull improvements from the main AIStack repo:
+To pull improvements from the main portolan repo:
 ```bash
 git remote add upstream https://github.com/justinatthebureau/portolan.git
 git fetch upstream

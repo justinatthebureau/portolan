@@ -16,7 +16,7 @@ export default function Layout({ children }) {
         <div style={styles.headerInner}>
           <Link to="/" style={styles.logo}>
             <span style={styles.logoMark}>▲</span>
-            <span style={styles.logoText}>AIStack</span>
+            <span style={styles.logoText}>portolan</span>
           </Link>
           <nav style={styles.nav}>
             {NAV.map(({ to, label }) => (
@@ -48,7 +48,7 @@ export default function Layout({ children }) {
       <footer style={styles.footer}>
         <div style={styles.footerInner}>
           <span style={{ fontFamily: "var(--mono)", fontSize: "12px", color: "var(--text-3)" }}>
-            AIStack — MIT License — Community maintained
+            portolan — MIT License — Community maintained
           </span>
           <div style={{ display: "flex", gap: "24px" }}>
             <a href="https://github.com/justinatthebureau/portolan" target="_blank" rel="noopener noreferrer" style={styles.footerLink}>GitHub</a>

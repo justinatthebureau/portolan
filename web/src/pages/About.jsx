@@ -10,14 +10,14 @@ export default function About() {
 
       <div style={styles.body}>
         <p style={styles.lead}>
-          AIStack is a community registry of deployable AI stacks. Every artifact
+          portolan is a community registry of deployable AI stacks. Every artifact
           is a real GitHub repo with a working Docker Compose setup. You bring
           your own API keys, run it on your own hardware, and own everything.
         </p>
 
         <p style={styles.para}>
           Most AI tooling asks you to sign up, hand over your data, and pay a
-          monthly fee for something you don't control. AIStack is the opposite —
+          monthly fee for something you don't control. portolan is the opposite —
           a place where people who've built useful things can share them, and
           people who need useful things can find and run them without friction.
         </p>
@@ -59,7 +59,7 @@ export default function About() {
 
         <h2 style={styles.h2}>Get involved</h2>
         <p style={styles.para}>
-          AIStack is MIT licensed and community maintained. The best way to
+          portolan is MIT licensed and community maintained. The best way to
           contribute is to publish an artifact, improve the schema, or improve
           the web experience.
         </p>

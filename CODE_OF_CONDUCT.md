@@ -2,7 +2,7 @@
 
 ## Our pledge
 
-AIStack is a community project. We are committed to making participation a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity, level of experience, nationality, personal appearance, race, religion, or sexual identity.
+portolan is a community project. We are committed to making participation a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity, level of experience, nationality, personal appearance, race, religion, or sexual identity.
 
 ## Our standards
 

@@ -58,12 +58,12 @@ const STEPS = [
   {
     n: "03",
     title: "Fork this registry and add your artifact",
-    body: "Fork the AIStack repo on GitHub. Add a file to registry/artifacts/ named your-artifact-slug.json containing your marketplace.json content. The slug becomes the URL on the marketplace.",
+    body: "Fork the portolan repo on GitHub. Add a file to registry/artifacts/ named your-artifact-slug.json containing your marketplace.json content. The slug becomes the URL on the marketplace.",
   },
   {
     n: "04",
     title: "Open a pull request",
-    body: "Open a PR against the main AIStack repo. CI will automatically validate your manifest against the schema. If it passes, a maintainer will review and merge. Once merged, your artifact appears on the marketplace within minutes.",
+    body: "Open a PR against the main portolan repo. CI will automatically validate your manifest against the schema. If it passes, a maintainer will review and merge. Once merged, your artifact appears on the marketplace within minutes.",
   },
 ];
 

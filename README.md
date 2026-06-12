@@ -1,4 +1,4 @@
-# AIStack Marketplace
+# portolan Marketplace
 
 A community-curated marketplace of deployable AI stacks. Find, understand, and run AI-powered tools on your own infrastructure — no coding required.
 
@@ -7,7 +7,7 @@ A community-curated marketplace of deployable AI stacks. Find, understand, and r
 
 ## What is this?
 
-AIStack is two things:
+portolan is two things:
 
 1. **A registry** of AI-powered Docker stacks, each described by a `marketplace.json` manifest
 2. **A web marketplace** that makes those stacks browsable and understandable by non-coders
@@ -16,7 +16,7 @@ Every artifact in the registry is a real GitHub repo with a working Docker Compo
 
 ## Quick Start
 
-**Browse:** Visit [aistack.dev](https://aistack.dev) (GitHub Pages)
+**Browse:** Visit [portolan.dev](https://portolan.dev) (GitHub Pages)
 
 **Publish an artifact:** See [docs/publishing.md](docs/publishing.md)
 
@@ -31,7 +31,7 @@ Every artifact in the registry is a real GitHub repo with a working Docker Compo
 This repository contains two distinct components. They are in a monorepo for now because the project is early and solo/small-team development benefits from unified PRs, shared issues, and a single place to understand the whole system.
 
 ```
-aistack/
+portolan/
 ├── registry/          # The artifact database
 ├── web/               # The marketplace frontend
 ├── docs/              # Platform documentation
